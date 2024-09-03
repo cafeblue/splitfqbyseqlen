@@ -38,7 +38,7 @@ fn main() {
   for line in reader.lines() {
     if pointer == 0 {
         str1 = line.unwrap();
-        str2 = str1.replace(" 1", " 2");
+        str2 = str1.replace(" 1:N:0:", " 2:N:0:");
         str1.push_str("\n");
         str2.push_str("\n");
         pointer = 1;
@@ -52,11 +52,8 @@ fn main() {
         pointer = 2;
     }
     else if pointer == 2 {
-        let tmpstr = line.unwrap();
-        str1.push_str(&tmpstr);
-        str2.push_str(&tmpstr);
-        str1.push_str("\n");
-        str2.push_str("\n");
+        str1.push_str("+\n");
+        str2.push_str("+\n");
         pointer = 3;
     }
     else if pointer == 3 {
