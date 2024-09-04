@@ -62,8 +62,8 @@ fn main() {
         str2.push_str(&tmpstr[args.fstlength as usize..]);
         str1.push_str("\n");
         str2.push_str("\n");
-        writer1.write(str1.as_bytes()).unwrap();
-        writer2.write(str2.as_bytes()).unwrap();
+        writer1.write_all(str1.as_bytes()).unwrap();
+        writer2.write_all(str2.as_bytes()).unwrap();
         pointer = 0;
     }
   }
