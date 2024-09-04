@@ -3,7 +3,7 @@ use clap::Parser;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::io::Write;
-use flate2::read::GzDecoder;
+use flate2::read::MultiGzDecoder;
 use flate2::write::GzEncoder;
 use flate2::Compression;
 
@@ -31,7 +31,7 @@ fn main() {
   let mut writer2 = GzEncoder::new(File::create(output2).unwrap(), Compression::default());
 
   let file = File::open(args.input).unwrap();
-  let reader = BufReader::new(GzDecoder::new(file));
+  let reader = BufReader::new(MultiGzDecoder::new(file));
   let mut pointer: u8 = 0;
   let mut str1: String = String::new();
   let mut str2: String = String::new();
